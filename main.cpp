@@ -1,44 +1,59 @@
 //
 //  main.cpp
-//  Assignment 3
+//  Assignment 4 - LL
 //
-//  Created by Diyaa Hamdy on 21/03/2023.
+//  Created by Diyaa Hamdy on 16/04/2023.
 //
 
 #include <iostream>
-#include "Person.h"
-#include "Customer.h"
-#include "Mechanic.h"
-#include "Queue.h"
+#include <vector>
+#include "Linked List .h"
 using namespace std;
+
+void insertAfter(vector<int>& v, int firstValue, int secondValue)
+{
+    for (int i = 0; i < v.size(); i++)
+    {
+        if (v[i] == firstValue)
+        {
+            v.insert(v.begin() + i + 1, secondValue);
+            i++;
+        }
+    }
+}
 
 int main()
 {
- //instantiate objects of the following classes
-    Customer c,c1,c2;
-    Mechanic m,m1,m2;
+    vector <int> v1;
     
-    c.setName("Diyaa");
-    c.setAppointment(14, 30);
-    c.printInfo();
+    v1.resize(3);
+   
     
-    c1.setName("Hosam");
-    c1.setAppointment(17, 00);
-    c1.printInfo();
+    for (int i = 0; i < v1.size(); i++)
+    {
+        cout << "Enter element: ";
+        cin >> v1[i];
+        
+    }
     
-    c2.setName("Farida");
-    c2.setAppointment(19, 45);
-    c2.printInfo();
+    for (int i = 0; i < v1.size(); i++)
+    {
+        cout << "Element " << i+1 << ": " << v1[i] << endl;
+        
+    }
     
-    m.setName("Kareem");
-    m.isAvailable();
-    m.printInfo();
+    int firstValue, secondValue;
+    cout << "Enter the first and second values: ";
+    cin >> firstValue >> secondValue;
+
+    insertAfter(v1, firstValue, secondValue);
     
-    m1.setName("Aly");
-    m1.isAvailable();
-    m1.printInfo();
+    LinkedList l;
+    l.addNode(5);
+    l.addNode(6);
+    l.addNode(7);
+    l.printList();
     
-    m2.setName("Mona");
-    m2.isAvailable();
-    m2.printInfo();
+
 }
+
